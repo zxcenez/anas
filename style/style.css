@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Roboto+Condensed:wght@700&display=swap");
+
+:root {
+    --col1: #05299e;
+    --col2: #5e4ae3;
+    --col3: #947bd3;
+    --col4: #ffb7ff;
+    --col5: #ff595e;
+}
+
+body {
+    height: 100vh;
+    margin: 0px;
+    display: grid;
+    place-items: center;
+    background-color: #000;
+}
+
+.large {
+    width: 70vmin;
+    height: 70vmin;
+    position: absolute;
+    transform-origin: bottom left;
+}
+
+#qc-peek-wrapper {
+    translate: -100% 0px;
+    overflow: hidden;
+}
+
+.quarter-circle {
+    border-top-right-radius: 100%;
+}
+
+#qc-peek-wrapper>.quarter-circle {
+    translate: 100% 0px;
+}
+
+#qc-peek-wrapper>.quarter-circle:nth-child(1) {
+    background-color: var(--col1);
+    animation: qc1-rotate 1.2s 0.8s ease forwards;
+}
+
+@keyframes qc1-rotate {
+    from {
+        rotate: 0deg;
+    }
+
+    to {
+        rotate: -12deg;
+    }
+}
+
+#qc-peek-wrapper>.quarter-circle:nth-child(2) {
+    background-color: var(--col2);
+    animation: qc2-rotate 1.05s 0.8s ease forwards;
+}
+
+@keyframes qc2-rotate {
+    from {
+        rotate: 0deg;
+    }
+
+    to {
+        rotate: -10.5deg;
+    }
+}
+
+#qc-peek-wrapper>.quarter-circle:nth-child(3) {
+    background-color: var(--col3);
+    animation: qc3-rotate 0.9s 0.8s ease forwards;
+}
+
+@keyframes qc3-rotate {
+    from {
+        rotate: 0deg;
+    }
+
+    to {
+        rotate: -9deg;
+    }
+}
+
+#qc-peek-wrapper>.quarter-circle:nth-child(4) {
+    background-color: var(--col4);
+    animation: qc4-rotate 0.6s 0.8s ease forwards;
+}
+
+@keyframes qc4-rotate {
+    from {
+        rotate: 0deg;
+    }
+
+    to {
+        rotate: -6deg;
+    }
+}
+
+#main-qc-wrapper {
+    overflow: hidden;
+}
+
+#main-qc-path {
+    animation: qc-stroke-anim 0.8s cubic-bezier(0, 0, 0.5, 0) forwards;
+}
+
+@keyframes qc-stroke-anim {
+    0% {
+        stroke-dasharray: 0 3;
+        stroke-width: 0;
+    }
+
+    100% {
+        stroke-dasharray: 2 0;
+        stroke-width: 0.02;
+    }
+}
+
+#main-qc-filler {
+    scale: 0;
+    animation: filler-appear 0.3s 0.8s cubic-bezier(0, 0, 0.4, 1) forwards;
+}
+
+@keyframes filler-appear {
+    from {
+        background-color: #fff0;
+        scale: 0;
+    }
+
+    to {
+        background-color: #ffff;
+        scale: 1;
+    }
+}
+
+#additional-qc {
+    z-index: -1;
+    background-color: var(--col5);
+    scale: 0;
+    animation: additional-appear 1s 1.2s cubic-bezier(0.2, 1.5, 0.5, 1) forwards;
+}
+
+@keyframes additional-appear {
+    from {
+        scale: 1;
+        rotate: 0deg;
+    }
+
+    to {
+        scale: 1.05;
+        rotate: -6deg;
+    }
+}
+
+#text-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.big-text {
+    font-size: 10vmin;
+    font-family: "Roboto Condensed", "Arial Narrow", sans-serif;
+}
+
+.small-text {
+    font-size: 4vmin;
+    font-family: Roboto, Arial, sans-serif;
+}
+
+.text-line {
+    margin-left: 6vmin;
+    overflow: hidden;
+}
+
+.text-line>div {
+    transform-origin: left;
+    transform: translateY(-100%);
+    animation: text-line-appear 1s cubic-bezier(0, 0, 0, 1) forwards;
+}
+
+.text-line:nth-child(1)>div {
+    animation-delay: 0.8s;
+}
+
+.text-line:nth-child(2)>div {
+    animation-delay: 1s;
+}
+
+.text-line:nth-child(3)>div {
+    animation-delay: 1.2s;
+}
+
+.text-line:nth-child(4)>div {
+    animation-delay: 1.6s;
+}
+
+@keyframes text-line-appear {
+    0% {
+        transform: skewY(-10deg) translateY(-100%);
+    }
+
+    80% {
+        transform: skeyY(-8deg);
+    }
+
+    100% {
+        transform: none;
+    }
+}
